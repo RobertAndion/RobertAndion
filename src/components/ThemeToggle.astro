@@ -1,0 +1,22 @@
+<button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch color theme">
+  <span aria-hidden="true" id="theme-toggle-label">theme</span>
+</button>
+<script>
+  const root = document.documentElement;
+  const btn = document.getElementById('theme-toggle');
+  const label = document.getElementById('theme-toggle-label');
+  const effective = () =>
+    root.dataset.theme ?? (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  const render = () => {
+    const next = effective() === 'dark' ? 'light' : 'dark';
+    if (label) label.textContent = next;
+    btn?.setAttribute('aria-label', `Switch to ${next} theme`);
+  };
+  btn?.addEventListener('click', () => {
+    const next = effective() === 'dark' ? 'light' : 'dark';
+    root.dataset.theme = next;
+    try { localStorage.setItem('theme', next); } catch {}
+    render();
+  });
+  render();
+</script>
