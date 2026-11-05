@@ -1,0 +1,13 @@
+---
+import { site } from '../data/site';
+const year = new Date().getFullYear(); // evaluated at build time
+---
+<footer class="site-footer">
+  <div class="wrap">
+    <p>© {year} Robert Andion. All rights reserved.</p>
+    <ul>
+      <li><a href={site.links.github} rel="me noopener">GitHub</a></li>
+      <li><a href={site.links.linkedin} rel="me noopener">LinkedIn</a></li>
+    </ul>
+  </div>
+</footer>
