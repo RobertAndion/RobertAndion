@@ -1,0 +1,22 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+---
+<Base title="Contact" description="Get in touch with Robert Andion via LinkedIn or GitHub.">
+  <div class="wrap page">
+    <p class="eyebrow">contact --list</p>
+    <h1>Contact</h1>
+    <p class="lede">The best way to reach me is LinkedIn. I'm open to Staff/Lead IC roles, remote or lightly hybrid.</p>
+    <!-- TODO: add a public contact email or a form here if you want one. Email/phone are intentionally omitted. -->
+    <ul class="cards" style="margin-top:2rem">
+      <li class="card">
+        <h3><a href={site.links.linkedin} rel="me noopener">LinkedIn</a></h3>
+        <p>linkedin.com/in/robert-andion</p>
+      </li>
+      <li class="card">
+        <h3><a href={site.links.github} rel="me noopener">GitHub</a></h3>
+        <p>github.com/RobertAndion</p>
+      </li>
+    </ul>
+  </div>
+</Base>

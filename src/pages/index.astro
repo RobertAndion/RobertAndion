@@ -1,0 +1,65 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { site } from '../data/site';
+
+const featured = (await getCollection('projects', (p) => p.data.featured && !p.data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const posts = (await getCollection('writing', (p) => !p.data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+const fmt = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' });
+---
+<Base>
+  <div class="wrap page">
+    <p class="eyebrow">whoami</p>
+    <h1>{site.name}<span class="cursor" aria-hidden="true"></span></h1>
+    <p class="lede">{site.tagline}</p>
+
+    <div class="actions">
+      <a class="btn btn-primary" href="/resume">View resume</a>
+      <a class="btn btn-ghost" href="/contact">Get in touch</a>
+    </div>
+
+    <section class="section" aria-labelledby="about">
+      <h2 id="about">about</h2>
+      <p>
+        I'm a lead software engineer who takes AI-powered platforms from concept to production, with a background in
+        fintech and most recently renewable energy. I architected Raymond James's first enterprise GenAI advisor
+        platform on AWS Bedrock, going from concept to firm-wide production in under three months.
+      </p>
+      <p>
+        My strengths are distributed systems, API design, RBAC and platform security, and LLM integration, mostly on
+        Java and Spring Boot. I'm based in Tampa, FL and work remotely, and I'm looking for Staff/Lead IC roles.
+      </p>
+      <ul class="stats" aria-label="Highlights">
+        <li><strong>40,000+</strong><span>advisors on the GenAI platform I led</span></li>
+        <li><strong>&lt; 3 mo</strong><span>concept to firm-wide production</span></li>
+        <li><strong>20% → 90%</strong><span>test coverage lift at Citi</span></li>
+      </ul>
+    </section>
+
+    <section class="section" aria-labelledby="projects">
+      <h2 id="projects">featured projects</h2>
+      <ul class="cards">
+        {featured.map((project) => <ProjectCard project={project} />)}
+      </ul>
+      <p style="margin-top:1rem"><a href="/projects">All projects →</a></p>
+    </section>
+
+    {posts.length > 0 && (
+      <section class="section" aria-labelledby="writing">
+        <h2 id="writing">recent writing</h2>
+        <ul class="post-list">
+          {posts.map((post) => (
+            <li>
+              <time datetime={post.data.date.toISOString()}>{fmt.format(post.data.date)}</time>
+              <a href={`/writing/${post.id}`}>{post.data.title}</a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+  </div>
+</Base>

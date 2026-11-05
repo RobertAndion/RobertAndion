@@ -1,0 +1,45 @@
+---
+import Base from '../layouts/Base.astro';
+import { experience, education, skills } from '../data/experience';
+---
+<Base title="Resume" description="Experience of Robert Andion: lead software engineer across fintech and AI platforms (Raymond James, Citi, DTCC, J.P. Morgan Chase).">
+  <div class="wrap page">
+    <p class="eyebrow">cat resume</p>
+    <h1>Experience</h1>
+    <p class="lede">Lead software engineer: fintech, distributed systems and AI platforms.</p>
+    <p class="actions"><a class="btn btn-primary" href="/resume.pdf" download>Download PDF</a></p>
+
+    <section class="section" aria-labelledby="work">
+      <h2 id="work">work</h2>
+      <ol class="timeline">
+        {experience.map((role) => (
+          <li>
+            <h3>{role.title}</h3>
+            <p class="meta">{role.company} · {role.detail} · {role.period}</p>
+            <ul>{role.bullets.map((b) => <li>{b}</li>)}</ul>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <section class="section" aria-labelledby="education">
+      <h2 id="education">education</h2>
+      <h3>{education.degree}, {education.school}</h3>
+      <p class="meta">{education.detail} · {education.period}</p>
+    </section>
+
+    <section class="section" aria-labelledby="skills">
+      <h2 id="skills">skills</h2>
+      <dl class="skills">
+        {skills.map((group) => (
+          <>
+            <dt>{group.label}</dt>
+            <dd>{group.items.join(' · ')}</dd>
+          </>
+        ))}
+        <dt>Spoken languages</dt>
+        <dd>English · Spanish</dd>
+      </dl>
+    </section>
+  </div>
+</Base>
