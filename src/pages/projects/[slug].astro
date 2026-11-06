@@ -8,7 +8,7 @@ export async function getStaticPaths() {
 }
 const { project } = Astro.props;
 const { Content } = await render(project);
-const { title, description, tags, repo, url } = project.data;
+const { title, description, tags, repo, url, private: isPrivate } = project.data;
 ---
 <Base title={title} description={description}>
   <article class="wrap page">
@@ -18,8 +18,8 @@ const { title, description, tags, repo, url } = project.data;
     {tags.length > 0 && <ul class="tags" aria-label="Technologies">{tags.map((t) => <li>{t}</li>)}</ul>}
     {(repo || url) && (
       <p class="actions">
-        {url && <a class="btn btn-primary" href={url} rel="noopener">Visit</a>}
-        {repo && <a class="btn btn-ghost" href={repo} rel="noopener">Source</a>}
+        {url && <a class="btn btn-primary" href={url} rel="noopener">{isPrivate ? 'Play it live' : 'Visit'}</a>}
+        {repo && <a class="btn btn-ghost" href={repo} rel="noopener">Source on GitHub</a>}
       </p>
     )}
     <div class="prose" style="margin-top:2rem"><Content /></div>
