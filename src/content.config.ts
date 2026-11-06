@@ -12,6 +12,8 @@ const projects = defineCollection({
     featured: z.boolean().default(false),
     repo: z.url().optional(),
     url: z.url().optional(),
+    // Source is not public: show a "private repo" note instead of a Source link.
+    private: z.boolean().default(false),
     draft: z.boolean().default(false),
   }),
 });
