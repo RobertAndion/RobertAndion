@@ -1,0 +1,27 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+const posts = (await getCollection('writing', (p) => !p.data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const fmt = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' });
+---
+<Base title="Writing" description="Notes and posts from Robert Andion on software engineering and AI platforms.">
+  <div class="wrap page">
+    <p class="eyebrow">ls writing/</p>
+    <h1>Writing</h1>
+    <p class="lede">Notes on building software and AI-powered platforms.</p>
+    {posts.length > 0 ? (
+      <ul class="post-list" style="margin-top:2rem">
+        {posts.map((post) => (
+          <li>
+            <time datetime={post.data.date.toISOString()}>{fmt.format(post.data.date)}</time>
+            <a href={`/writing/${post.id}/`}>{post.data.title}</a>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p class="meta" style="margin-top:2rem">No posts yet.</p>
+    )}
+  </div>
+</Base>
