@@ -2,7 +2,7 @@
 title: 'TODO: Replace this placeholder post'
 description: 'TODO: One-sentence summary of your first post.'
 date: 2026-11-05
-draft: false
+draft: true # TODO: set to false (or delete this file) once it is a real post
 ---
 
 <!-- TODO: delete this file or replace it with a real post. Add new posts as Markdown files in src/content/writing/. -->

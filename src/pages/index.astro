@@ -18,8 +18,8 @@ const fmt = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', 
     <p class="lede">{site.tagline}</p>
 
     <div class="actions">
-      <a class="btn btn-primary" href="/resume">View resume</a>
-      <a class="btn btn-ghost" href="/contact">Get in touch</a>
+      <a class="btn btn-primary" href="/resume/">View resume</a>
+      <a class="btn btn-ghost" href="/contact/">Get in touch</a>
     </div>
 
     <section class="section" aria-labelledby="about">
@@ -45,7 +45,7 @@ const fmt = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', 
       <ul class="cards">
         {featured.map((project) => <ProjectCard project={project} />)}
       </ul>
-      <p style="margin-top:1rem"><a href="/projects">All projects →</a></p>
+      <p style="margin-top:1rem"><a href="/projects/">All projects →</a></p>
     </section>
 
     {posts.length > 0 && (
@@ -55,7 +55,7 @@ const fmt = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', 
           {posts.map((post) => (
             <li>
               <time datetime={post.data.date.toISOString()}>{fmt.format(post.data.date)}</time>
-              <a href={`/writing/${post.id}`}>{post.data.title}</a>
+              <a href={`/writing/${post.id}/`}>{post.data.title}</a>
             </li>
           ))}
         </ul>

@@ -1,8 +1,8 @@
 ---
 import { nav, site } from '../data/site';
 import ThemeToggle from './ThemeToggle.astro';
-const path = Astro.url.pathname.replace(/\/$/, '') || '/';
-const isActive = (href: string) => (href === '/' ? path === '/' : path === href || path.startsWith(href + '/'));
+const path = Astro.url.pathname.replace(/\/?$/, '/');
+const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWith(href));
 ---
 <header class="site-header">
   <div class="wrap">

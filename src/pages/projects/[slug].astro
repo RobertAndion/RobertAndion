@@ -12,7 +12,7 @@ const { title, description, tags, repo, url } = project.data;
 ---
 <Base title={title} description={description}>
   <article class="wrap page">
-    <p class="eyebrow"><a href="/projects">cd ..</a></p>
+    <p class="eyebrow"><a href="/projects/">cd ..</a></p>
     <h1>{title}</h1>
     <p class="lede">{description}</p>
     {tags.length > 0 && <ul class="tags" aria-label="Technologies">{tags.map((t) => <li>{t}</li>)}</ul>}

@@ -7,7 +7,7 @@ Personal site for Robert Andion, built with [Astro](https://astro.build) (static
 Requires Node.js `>=22.23.4`.
 
 ```bash
-npm install
+npm ci           # installs the exact versions in package-lock.json
 npm run dev      # http://localhost:4321
 ```
 
