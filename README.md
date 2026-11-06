@@ -1,42 +1,33 @@
-# robertandion.com
+# Hi, I'm Robert Andion 👋
 
-Personal site for Robert Andion, built with [Astro](https://astro.build) (static output) and deployed to GitHub Pages at <https://robertandion.com>.
+Lead software engineer in Tampa, FL (working remotely). I take AI-powered platforms from concept to production, mostly
+in **Java and Spring Boot**, with a background in fintech.
 
-## Local development
+- 🤖 Architected Raymond James's first enterprise GenAI advisor platform on AWS Bedrock. It went from concept to
+  firm-wide production in under 3 months and now serves **40,000+ advisors**.
+- 🏦 Before that, I was at Citi, DTCC and J.P. Morgan Chase, working on distributed systems, Kafka event-driven platforms, API design
+  and platform security. At Citi I helped raise test coverage from 20% to 90%.
+- 🎓 B.S. Computer Science, University of South Florida (4.0, Summa Cum Laude).
+- 🔭 Looking for **Staff / Lead IC** roles.
 
-Requires Node.js `>=22.23.4`.
+## Side projects
 
-```bash
-npm ci           # installs the exact versions in package-lock.json
-npm run dev      # http://localhost:4321
-```
+| Project | What it is | Started |
+| --- | --- | --- |
+| [**Dutch**](https://dutch.robertandion.com) | Real-time multiplayer card game (a Cambio/Cabo variant) with AI bots, accounts, Elo ranking and friends. Java 21 / Spring Boot WebSockets with a React + TypeScript client. The source is private, but you can [play it live](https://dutch.robertandion.com). | 2026 |
+| [**Discord_Music_Bot**](https://github.com/RobertAndion/Discord_Music_Bot) | Self-hosted Discord music bot in Python + Lavalink, with playlists, per-server settings, a locked-down Docker container and deploys from GitHub Actions. | 2020 |
+| [**DiscordMusicBot**](https://github.com/RobertAndion/DiscordMusicBot) | JukeBot, the Node.js take on it: discord.js v14, yt-dlp and FFmpeg, with per-user playlists and Jest tests. | 2021 |
 
-Other scripts:
+## Tools I use most
 
-```bash
-npm run build    # static build into dist/
-npm run preview  # serve the built site locally
-npm run check    # type-check Astro files and content schemas
-```
+Java · Spring Boot · Python · JavaScript/TypeScript · React · Kafka · AWS (Bedrock, SageMaker) · Docker · Kubernetes ·
+PostgreSQL · Oracle · Datadog · Splunk · Claude Code
 
-## Adding content
+## Find me
 
-- **Projects:** add a Markdown file in `src/content/projects/`. Frontmatter fields are defined in `src/content.config.ts` (`title`, `description`, `date` (the year it was started, shown next to the title), optional `tags`, `featured`, `repo`, `url`, `private`, `draft`). `featured: true` shows it on the home page; `private: true` marks a project whose source isn't public (no Source link, a "private repo" note instead).
-- **Resume:** edit `src/data/experience.ts` and replace `public/resume.pdf`.
-- **Site settings and links:** `src/data/site.ts`.
+🌐 [robertandion.com](https://robertandion.com) · 💼 [LinkedIn](https://www.linkedin.com/in/robert-andion/) ·
+📄 [Resume](https://robertandion.com/resume/)
 
-Placeholder content is marked `TODO`. Find it with:
+---
 
-```bash
-grep -rn "TODO" src public README.md
-```
-
-## Deploy
-
-Pushing to `main` runs `.github/workflows/deploy.yml`, which builds the site and publishes it with the official `actions/configure-pages`, `actions/upload-pages-artifact` and `actions/deploy-pages` actions.
-
-One-time repository setup (already done): Settings → Pages → Source = **GitHub Actions**, custom domain `robertandion.com`. The site is served from the domain root, so `site` is `https://robertandion.com` in `astro.config.mjs` with no `base` path. `public/CNAME` is kept as a safety net.
-
-## License
-
-Copyright (c) 2026 Robert Andion. All rights reserved. No permission is granted to copy, modify, distribute, or reuse any code, design, or content in this repository without prior written permission. See [LICENSE](./LICENSE).
+<sub>This repo is also the source for [robertandion.com](https://robertandion.com). See [SITE.md](SITE.md) for how to build and deploy it.</sub>
