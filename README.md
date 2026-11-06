@@ -21,8 +21,7 @@ npm run check    # type-check Astro files and content schemas
 
 ## Adding content
 
-- **Projects:** add a Markdown file in `src/content/projects/`. Frontmatter fields are defined in `src/content.config.ts` (`title`, `description`, `date`, optional `tags`, `featured`, `repo`, `url`, `private`, `draft`). `featured: true` shows it on the home page; `private: true` marks a project whose source isn't public (no Source link, a "private repo" note instead).
-- **Posts:** add a Markdown file in `src/content/writing/` (`title`, `description`, `date`, optional `draft`).
+- **Projects:** add a Markdown file in `src/content/projects/`. Frontmatter fields are defined in `src/content.config.ts` (`title`, `description`, `date` (the year it was started, shown next to the title), optional `tags`, `featured`, `repo`, `url`, `private`, `draft`). `featured: true` shows it on the home page; `private: true` marks a project whose source isn't public (no Source link, a "private repo" note instead).
 - **Resume:** edit `src/data/experience.ts` and replace `public/resume.pdf`.
 - **Site settings and links:** `src/data/site.ts`.
 

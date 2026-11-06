@@ -77,7 +77,16 @@ blockquote { margin: 0 0 1rem; padding-left: 1rem; border-left: 3px solid var(--
 .site-nav a { color: var(--muted); text-decoration: none; padding: .25rem 0; border-bottom: 2px solid transparent; }
 .site-nav a:hover { color: var(--fg); }
 .site-nav a[aria-current='page'] { color: var(--fg); border-bottom-color: var(--accent); }
-.theme-toggle { font: inherit; font-family: var(--mono); font-size: .85rem; color: var(--muted); background: none; border: 1px solid var(--border); border-radius: 4px; padding: .2rem .55rem; cursor: pointer; }
+.theme-toggle { display: inline-flex; align-items: center; justify-content: center; color: var(--muted); background: none; border: 1px solid var(--border); border-radius: 4px; padding: .3rem .4rem; cursor: pointer; line-height: 0; }
+.theme-toggle svg { display: block; }
+/* Light: offer the moon. Dark (chosen, or from the OS with no choice): offer the sun. */
+.theme-toggle .icon-sun { display: none; }
+:root[data-theme='dark'] .theme-toggle .icon-moon { display: none; }
+:root[data-theme='dark'] .theme-toggle .icon-sun { display: block; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .theme-toggle .icon-moon { display: none; }
+  :root:not([data-theme='light']) .theme-toggle .icon-sun { display: block; }
+}
 .theme-toggle:hover { color: var(--fg); border-color: var(--muted); }
 
 /* Footer */
@@ -119,9 +128,6 @@ blockquote { margin: 0 0 1rem; padding-left: 1rem; border-left: 3px solid var(--
 .tags { display: flex; flex-wrap: wrap; gap: .4rem; list-style: none; padding: 0; margin: 0; }
 .tags li { margin: 0; font-family: var(--mono); font-size: .78rem; border: 1px solid var(--border); border-radius: 999px; padding: .05rem .6rem; color: var(--muted); background: var(--bg); }
 .meta { font-family: var(--mono); font-size: .85rem; color: var(--muted); }
-.post-list { list-style: none; padding: 0; }
-.post-list li { display: flex; flex-wrap: wrap; gap: .25rem 1rem; align-items: baseline; padding: .6rem 0; border-bottom: 1px dashed var(--border); margin: 0; }
-.post-list time { font-family: var(--mono); font-size: .85rem; color: var(--muted); min-width: 7.5rem; }
 
 /* Timeline */
 .timeline { list-style: none; padding: 0; margin: 0; border-left: 2px solid var(--border); }
@@ -140,3 +146,4 @@ blockquote { margin: 0 0 1rem; padding-left: 1rem; border-left: 3px solid var(--
 .card .card-links { display: flex; flex-wrap: wrap; gap: 1rem; margin: .75rem 0 0; font-family: var(--mono); font-size: .85rem; }
 .card .card-links:empty { display: none; }
 .card .card-links .muted { color: var(--muted); }
+.card h3 .year { font-family: var(--mono); font-size: .8rem; font-weight: 400; color: var(--muted); margin-left: .35rem; white-space: nowrap; }
