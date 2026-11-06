@@ -13,7 +13,7 @@ const fmt = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', d
 ---
 <Base title={title} description={description} type="article">
   <article class="wrap page">
-    <p class="eyebrow"><a href="/writing">cd ..</a></p>
+    <p class="eyebrow"><a href="/writing/">cd ..</a></p>
     <h1>{title}</h1>
     <p class="meta"><time datetime={date.toISOString()}>{fmt.format(date)}</time></p>
     <div class="prose" style="margin-top:2rem"><Content /></div>
