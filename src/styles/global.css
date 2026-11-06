@@ -137,3 +137,6 @@ blockquote { margin: 0 0 1rem; padding-left: 1rem; border-left: 3px solid var(--
 .prose img { max-width: 100%; height: auto; }
 
 @media (max-width: 30rem) { body { font-size: 1rem; } .page { padding-top: 2rem; } }
+.card .card-links { display: flex; flex-wrap: wrap; gap: 1rem; margin: .75rem 0 0; font-family: var(--mono); font-size: .85rem; }
+.card .card-links:empty { display: none; }
+.card .card-links .muted { color: var(--muted); }
