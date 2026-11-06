@@ -6,10 +6,6 @@ import { site } from '../data/site';
 
 const featured = (await getCollection('projects', (p) => p.data.featured && !p.data.draft))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
-const posts = (await getCollection('writing', (p) => !p.data.draft))
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0, 3);
-const fmt = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' });
 ---
 <Base>
   <div class="wrap page">
@@ -47,19 +43,5 @@ const fmt = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', 
       </ul>
       <p style="margin-top:1rem"><a href="/projects/">All projects →</a> · <a href={site.links.github} rel="noopener">GitHub →</a></p>
     </section>
-
-    {posts.length > 0 && (
-      <section class="section" aria-labelledby="writing">
-        <h2 id="writing">recent writing</h2>
-        <ul class="post-list">
-          {posts.map((post) => (
-            <li>
-              <time datetime={post.data.date.toISOString()}>{fmt.format(post.data.date)}</time>
-              <a href={`/writing/${post.id}/`}>{post.data.title}</a>
-            </li>
-          ))}
-        </ul>
-      </section>
-    )}
   </div>
 </Base>
