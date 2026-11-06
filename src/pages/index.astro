@@ -41,11 +41,11 @@ const fmt = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', 
     </section>
 
     <section class="section" aria-labelledby="projects">
-      <h2 id="projects">featured projects</h2>
+      <h2 id="projects">side projects</h2>
       <ul class="cards">
         {featured.map((project) => <ProjectCard project={project} />)}
       </ul>
-      <p style="margin-top:1rem"><a href="/projects/">All projects →</a></p>
+      <p style="margin-top:1rem"><a href="/projects/">All projects →</a> · <a href={site.links.github} rel="noopener">GitHub →</a></p>
     </section>
 
     {posts.length > 0 && (

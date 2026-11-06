@@ -2,17 +2,19 @@
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
+import { site } from '../../data/site';
 
 const projects = (await getCollection('projects', (p) => !p.data.draft))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
-<Base title="Projects" description="Selected projects by Robert Andion: AI platforms, distributed systems and developer tooling.">
+<Base title="Projects" description="Side projects by Robert Andion: a real-time multiplayer card game and self-hosted Discord bots.">
   <div class="wrap page">
     <p class="eyebrow">ls projects/</p>
     <h1>Projects</h1>
-    <p class="lede">Selected work in AI platforms, distributed systems and developer tooling.</p>
+    <p class="lede">Things I build and run on my own time. Professional work is on the <a href="/resume/">resume</a>.</p>
     <ul class="cards" style="margin-top:2rem">
       {projects.map((project) => <ProjectCard project={project} />)}
     </ul>
+    <p style="margin-top:1rem">More on <a href={site.links.github} rel="noopener">GitHub →</a></p>
   </div>
 </Base>
