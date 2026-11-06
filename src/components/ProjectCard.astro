@@ -2,11 +2,12 @@
 import type { CollectionEntry } from 'astro:content';
 interface Props { project: CollectionEntry<'projects'> }
 const { project } = Astro.props;
-const { title, description, tags, url, repo, private: isPrivate } = project.data;
+const { title, description, date, tags, url, repo, private: isPrivate } = project.data;
+const year = date.getUTCFullYear();
 const host = url ? new URL(url).host : undefined;
 ---
 <li class="card">
-  <h3><a href={`/projects/${project.id}/`}>{title}</a></h3>
+  <h3><a href={`/projects/${project.id}/`}>{title}</a> <time class="year" datetime={String(year)}>{year}</time></h3>
   <p>{description}</p>
   {tags.length > 0 && <ul class="tags" aria-label="Technologies">{tags.map((t) => <li>{t}</li>)}</ul>}
   <p class="card-links">
