@@ -1,0 +1,29 @@
+<button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch color theme">
+  <span aria-hidden="true" id="theme-toggle-label">theme</span>
+</button>
+<script>
+  const root = document.documentElement;
+  const btn = document.getElementById('theme-toggle');
+  const label = document.getElementById('theme-toggle-label');
+  const media = matchMedia('(prefers-color-scheme: dark)');
+  const colors = { light: '#fafafa', dark: '#0b0d14' } as const;
+  const effective = () => root.dataset.theme ?? (media.matches ? 'dark' : 'light');
+  const render = () => {
+    const current = effective() === 'dark' ? 'dark' : 'light';
+    const next = current === 'dark' ? 'light' : 'dark';
+    if (label) label.textContent = next;
+    btn?.setAttribute('aria-label', `Switch to ${next} theme`);
+    // Keep the browser UI color in step with the chosen theme, not just the OS setting.
+    if (root.dataset.theme) {
+      document.querySelectorAll('meta[name="theme-color"]').forEach((m) => m.setAttribute('content', colors[current]));
+    }
+  };
+  btn?.addEventListener('click', () => {
+    root.dataset.theme = effective() === 'dark' ? 'light' : 'dark';
+    try { localStorage.setItem('theme', root.dataset.theme); } catch {}
+    render();
+  });
+  // If no theme was chosen, follow OS changes while the page is open.
+  media.addEventListener('change', render);
+  render();
+</script>
