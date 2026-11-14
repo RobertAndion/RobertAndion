@@ -28,9 +28,9 @@ export const experience: Role[] = [
     detail: 'Hybrid · St. Petersburg, FL',
     period: 'Mar 2026 – Aug 2026',
     bullets: [
-      'Delivered Raymond James’s first enterprise AI advisor assistant from zero to full firm-wide production in under 3 months, personally leading a team of 3 engineers from architecture through release.',
+      'Delivered Raymond James’s first enterprise AI advisor assistant from zero to full firm-wide production in under 3 months, owning the technical direction from architecture through release.',
       'Built the Java 17 / Spring Boot microservice backbone powering an AI chatbot grounded in proprietary RJ data, now serving 40,000+ advisors with real-time access to client insights, compliance guidance, and market intelligence.',
-      'Designed and owned high-throughput RESTful APIs (OpenAPI 3.0 / Swagger) and Oracle-backed distributed microservices using domain-driven design, load-tested to 3× general-availability volume (120,000+ advisors) while holding response-time SLAs.',
+      'Designed and owned high-throughput RESTful APIs (OpenAPI 3.0 / Swagger) and Oracle-backed distributed microservices, load-tested to 3× general-availability volume (120,000+ advisors) while holding response-time SLAs.',
       'Integrated Amazon Bedrock and SageMaker for generative-AI responses over internal knowledge; instrumented observability in Datadog, Dynatrace, and Splunk.',
       'Enforced security, compliance, and software governance across a regulated financial environment; owned CI/CD pipeline (Jenkins, Maven, Flyway) from build through deployment.',
     ],
@@ -53,7 +53,7 @@ export const experience: Role[] = [
     detail: 'Hybrid · Tampa, FL',
     period: 'Jan 2025 – Jul 2025',
     bullets: [
-      'Modernized legacy core financial systems on Java, containerizing services with Docker and Kubernetes and migrating to PostgreSQL, improving performance, security, and scalability.',
+      'Modernized legacy core financial systems on Java, containerizing services with Docker and Kubernetes, improving performance, security, and scalability.',
       'Implemented new trading features compliant with SEC regulations, increasing transaction throughput by ~15%.',
       'Contributed to disaster recovery planning, strengthening resilience and uptime for mission-critical platforms.',
     ],
